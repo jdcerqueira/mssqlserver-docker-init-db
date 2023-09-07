@@ -1,0 +1,11 @@
+USE FINANCEIRO
+GO
+
+CREATE ROLE AplicacaoRole
+GO
+
+ALTER ROLE AplicacaoRole ADD MEMBER aplicacao
+GO
+
+GRANT EXECUTE TO AplicacaoRole
+GO
