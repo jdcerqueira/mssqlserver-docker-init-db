@@ -1,6 +1,23 @@
 USE FINANCEIRO
 GO
 
+IF OBJECT_ID('despesa.uspIncluirDespesa','P') IS NOT NULL
+	DROP PROCEDURE despesa.uspIncluirDespesa
+GO
+
+IF OBJECT_ID('movimentacao.uspIncluirMovimentacaoDespesa','P') IS NOT NULL
+	DROP PROCEDURE movimentacao.uspIncluirMovimentacaoDespesa
+GO
+
+IF OBJECT_ID('despesa.uspBuscaDespesa','P') IS NOT NULL
+	DROP PROCEDURE despesa.uspBuscaDespesa
+GO
+
+IF OBJECT_ID('despesa.uspListaDespesasGeral','P') IS NOT NULL
+	DROP PROCEDURE despesa.uspListaDespesasGeral
+GO
+
+
 CREATE PROCEDURE despesa.uspIncluirDespesa
 	@identificacao		VARCHAR(100),
 	@agrupador			VARCHAR(100),
@@ -23,6 +40,9 @@ BEGIN
 END
 GO
 
+PRINT 'PROCEDURE despesa.uspIncluirDespesa CRIADA COM SUCESSO.'
+GO  
+
 CREATE PROCEDURE movimentacao.uspIncluirMovimentacaoDespesa
 	@identificacao	VARCHAR(100),
 	@valor			FLOAT,
@@ -40,6 +60,8 @@ BEGIN
 	SET NOCOUNT OFF
 END
 GO
+PRINT 'PROCEDURE movimentacao.uspIncluirMovimentacaoDespesa CRIADA COM SUCESSO.'
+GO  
 
 CREATE PROCEDURE despesa.uspBuscaDespesa
 	@identificacao VARCHAR(100)
@@ -79,6 +101,8 @@ BEGIN
 	SET NOCOUNT OFF
 END
 GO
+PRINT 'PROCEDURE despesa.uspBuscaDespesa CRIADA COM SUCESSO.'
+GO  
 
 CREATE PROCEDURE despesa.uspListaDespesasGeral
 AS
@@ -102,3 +126,5 @@ BEGIN
 	SET NOCOUNT OFF
 END
 GO
+PRINT 'PROCEDURE despesa.uspListaDespesasGeral CRIADA COM SUCESSO.'
+GO  

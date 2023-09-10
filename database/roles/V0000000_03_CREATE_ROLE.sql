@@ -1,10 +1,14 @@
 USE FINANCEIRO
 GO
 
-CREATE ROLE AplicacaoRole
-GO
+IF NOT EXISTS(SELECT TOP 1 1 FROM sys.database_principals WHERE NAME = 'AplicacaoRole')
+BEGIN
+    CREATE ROLE AplicacaoRole
+    PRINT 'ROLE CRIADA COM SUCESSO.'
 
-ALTER ROLE AplicacaoRole ADD MEMBER aplicacao
+    ALTER ROLE AplicacaoRole ADD MEMBER aplicacao
+    PRINT 'USUARIO ADICIONADO A ROLE COM SUCESSO.'
+END
 GO
 
 GRANT EXECUTE TO AplicacaoRole
