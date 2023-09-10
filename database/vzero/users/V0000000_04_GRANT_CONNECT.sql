@@ -1,5 +1,0 @@
-USE FINANCEIRO
-GO
-
-GRANT CONNECT TO aplicacao
-GO
