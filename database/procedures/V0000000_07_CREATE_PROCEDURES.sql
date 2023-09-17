@@ -81,10 +81,10 @@ BEGIN
 		MAX(M.lancamento) ultimoLancamento,
 		R.qtRecorrencia
 	FROM despesa.Despesas D
-		INNER JOIN movimentacao.Movimentacoes M
-			ON M.despesa = D.identificacao
-		LEFT JOIN regras.Recorrencia R
+		INNER JOIN regras.Recorrencia R
 			ON R.identificacao = D.recorrencia
+		LEFT JOIN movimentacao.Movimentacoes M
+			ON M.despesa = D.identificacao
 	WHERE
 		D.identificacao = @identificacao
 	GROUP BY
